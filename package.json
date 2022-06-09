@@ -13,7 +13,9 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.0-beta1",
     "html-loader": "^3.1.0",
-    "joshjs": "^1.0.8"
+    "joshjs": "^1.0.8",
+    "normalize.css": "^8.0.1",
+    "rfs": "^9.0.6"
   },
   "devDependencies": {
     "babel-loader": "^8.2.5",
