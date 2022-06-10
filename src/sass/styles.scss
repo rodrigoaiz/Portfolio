@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
-@import "~rfs/scss";
+//@import "~rfs/scss";
 $color__rojo: rgb(202, 22, 43);
 $color__rojo-tenue: rgb(114, 34, 44);
 $color__amarillo: rgb(255, 210, 0);
 $color__azul:rgb(76, 118, 161);
-$color__base--purpura:rgb(163, 80, 163);
+$color__base--purpura:rgb(133, 33, 81);
 $color__base--verde:rgb(80, 163, 80);
 $color__base--fiusha:rgb(193, 67, 109);
 $color__base--negro:rgb(15, 12, 36);
 $color__base--negromorado:rgb(12, 9, 29);
+$color__blanco:rgb(236, 235, 243);
 $tipo__titulos: 'DM Serif Text', serif;
 $tipo__textos: 'Work Sans', sans-serif;
 $font-family-sans-serif: 'Work Sans', sans-serif;
@@ -21,31 +22,42 @@ $font-size-base:1.5rem !default;
     justify-content: center;
     align-items: center;
 }
+.section{
+  z-index: 1;
+}
 /* menu header*/
+
 .header{
     width: 90%;
     min-height: 2em;
-    background-color: $color__base--fiusha;
     display: flex;
     flex-flow: row  wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    position: absolute;
-    margin: 2rem auto;
+    position: fixed;
+    margin: auto;
     left: 0;
     right: 0;
+    top: 1rem;
     z-index: 11;
+    border-radius: 10px;
+    transition: all ease 1s;
     &__h1{
-        background-color: azure;
         font-family: $tipo__titulos;
         line-height: normal;
+        color: $color__blanco;
         a{
             text-decoration: none;
+            transition: all ease 1s;
+            &:link{
+              color:  $color__blanco;;
+            }
+            &:hover,&focus{
+              color:$color__base--fiusha;
+            }
         }
     }
     &__nav{
-        background-color:blue ;
         display: flex;
         flex-flow: column;
         justify-content: center;
@@ -58,22 +70,68 @@ $font-size-base:1.5rem !default;
             align-items: center;
             justify-content: center;
             li{
-                background-color: aqua;
-                margin: 1em;
+
+
+                button{
+                  text-decoration: none;
+                  transition: all ease 0.5s;
+                  color:  $color__blanco;
+                  margin:0 2em;
+                  border-radius: 0;
+
+                  &:link{
+
+                  }
+                  &:hover,&focus{
+                    color:rgb(233, 209, 209);
+                    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+                    transform: translateY(0.25em) scale(120%);
+                    background:rgba(164, 120, 208, 0.9);
+                  }
+                  &:focus{
+
+                  }
+                }
             }
         }
 
+    }
+}
+
+.header-down{
+
+    width: 100%;
+    max-height: 3em;
+    background-color:$color__base--purpura;
+    mix-blend-mode:luminosity;
+    display: flex;
+    flex-flow: row  no-wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 5rem;
+    position: fixed;
+    z-index: 11;
+    border-radius:0;
+    margin: 0;
+    top: 0;
+    transition: all ease 1s;
+    h1{
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    ul{
+      margin: 0;
+      li{
+        margin:0;
+      }
     }
 }
 /* menu redes*/
 .redes{
     width: 5%;
     min-height: 10em;
-    background-color: $color__amarillo;
-    @include d-flex-column;
-    justify-content: space-evenly;
     align-items:center;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     left: 1em;
@@ -88,32 +146,23 @@ $font-size-base:1.5rem !default;
         }
     }
 }
-
-/*top banner*/
-.topbanner{
-    width: 100%;
-    min-height:100vh;
-    //filter: contrast(170%) brightness(1000%);
-
-    background: linear-gradient(20deg, rebeccapurple, transparent), url('../assets/noise.svg');
-    font-family: $tipo__textos;
-    @include d-flex-column;
-    @include d-flex-centro;
-
-  /* Chrome-specific
-  @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
-    .topbanner {
-      filter: contrast(290%) brightness(1000%);
+.fondo__circulos{
+  transition: all ease 1s;
+      background: linear-gradient(111.6deg,  rgba(193,145,103,0.81) -0.5%, rgba(84,20,80,0.76) 50.9%, rgba(8,52,70,0.85) 100%), url('../assets/noise.svg');
+    filter: contrast(270%) brightness(100%);
+    /*Chrome-specific*/
+    @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+      .topbanner {
+        filter: contrast(290%) brightness(1000%);
+      }
     }
-  }*/
-
-    &__circulos{
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         min-height: 100%;
         overflow: hidden;
+        z-index:-1;
         @keyframes animate{
             0%{
                 opacity:1;
@@ -131,22 +180,21 @@ $font-size-base:1.5rem !default;
         div{
           width: 2rem;
           min-height: 2rem;
-          border: 6px solid indigo;
-          background-color:rgba(193, 67, 109,0.2);
+          background-color:rgba(215, 146, 169, 0.5);
           position: absolute;
           display: block;
           list-style: none;
           bottom: -550px;
-          animation: animate 15s linear infinite;
+          animation: animate 25s linear infinite;
           z-index: 1;
-
-          filter: blur(25px);
+          mix-blend-mode:luminosity;
+          filter: blur(25.0px);
         }
         div:nth-child(1){
           width: 16rem;
           height: 16rem;
-          left: 25%;
-          animation-delay: 0s;
+          left: 75%;
+          animation-delay: 3s;
         }
         div:nth-child(2){
           width: 1rem;
@@ -159,7 +207,7 @@ $font-size-base:1.5rem !default;
           width: 7rem;
           height: 7rem;
           left: 90%;
-          animation-duration: 5s;
+          animation-duration: 9s;
         }
         div:nth-child(4){
           width: 9rem;
@@ -196,37 +244,70 @@ $font-size-base:1.5rem !default;
           height: 7rem;
           left: 15%;
           animation-delay: 6s;
-          animation-duration: 5s;
+          animation-duration: 7s;
         }
         div:nth-child(10){
           width: 7rem;
           height: 7rem;
           left: 75%;
           animation-delay: 4s;
-          animation-duration: 4s;
+          animation-duration: 10s;
         }
     }
+.fondo-down{
+  transition: all ease 1s;
+      background: linear-gradient(111.6deg,  rgba(193,145,103,0.81) -0.5%, rgba(84,20,80,0.76) 50.9%, rgba(8,52,70,0.85) 100%), url('../assets/noise.svg');
+    filter: contrast(270%) brightness(600%);
+    /*Chrome-specific*/
+    @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+      .topbanner {
+        filter: contrast(290%) brightness(1000%);
+      }
+    }
+}
+/*top banner*/
+.topbanner{
+    width: 100%;
+    min-height:100vh;
+    font-family: $tipo__textos;
+    @include d-flex-column;
+    @include d-flex-centro;
+
+
     &__h1{
         font-family: $tipo__titulos;
-        font-size: 5em;
+        font-size:8em;
+        text-align: center;
     }
     &__h2{
         font-family: $tipo__titulos;
-        font-size: 2em;
-    }
-    &__p{
+        font-size: 3em;
         text-align: center;
     }
+    &__p{
+      font-family: $tipo__textos;
+      text-align: center;
+        font-size: 2em;
+    }
     &__interior{
-        width: 90%;
+        width: 60%;
         min-height: 50vh;
         @include d-flex-column;
         @include d-flex-centro;
-        background-color: $color__base--verde;
+        background-color: $color__blanco;
         position: relative;
         z-index:5;
+        mix-blend-mode: color-dodge;
+        filter: contrast(50%) brightness(100%);
+        /*Chrome-specific*/
+        @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+          .topbanner {
+            filter: contrast(290%) brightness(1000%);
+          }
+        }
         &__contenido{
-            background-color: red;
+
+
         }
     }
 }
@@ -234,6 +315,8 @@ $font-size-base:1.5rem !default;
 /*works*/
 
 .works{
+  min-height: 100vh;
+  background-color:$color__amarillo;
     &__h1{}
     &__grid{
         article{
