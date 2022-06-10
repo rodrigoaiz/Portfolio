@@ -36,7 +36,7 @@ $font-size-base:1.5rem !default;
     left: 0;
     right: 0;
     z-index: 11;
-    h1{
+    &__h1{
         background-color: azure;
         font-family: $tipo__titulos;
         line-height: normal;
@@ -44,7 +44,7 @@ $font-size-base:1.5rem !default;
             text-decoration: none;
         }
     }
-    nav{
+    &__nav{
         background-color:blue ;
         display: flex;
         flex-flow: column;
@@ -60,9 +60,6 @@ $font-size-base:1.5rem !default;
             li{
                 background-color: aqua;
                 margin: 1em;
-                a{
-
-                }
             }
         }
 
@@ -81,7 +78,7 @@ $font-size-base:1.5rem !default;
     transform: translateY(-50%);
     left: 1em;
     z-index: 10;
-    ul{
+    &__ul{
         background-color: red;
         margin: 0;
         padding-left: 0;
@@ -100,18 +97,18 @@ $font-size-base:1.5rem !default;
     font-family: $tipo__textos;
     @include d-flex-column;
     @include d-flex-centro;
-    h1{
+    &__h1{
         font-family: $tipo__titulos;
         font-size: 5em;
     }
-    h2{
+    &__h2{
         font-family: $tipo__titulos;
         font-size: 2em;
     }
-    p{
+    &__p{
         text-align: center;
     }
-    .topbanner__interior{
+    &__interior{
         width: 90%;
         min-height: 50vh;
         @include d-flex-column;
@@ -119,8 +116,25 @@ $font-size-base:1.5rem !default;
         background-color: $color__base--verde;
         position: relative;
         z-index:1;
-        .topbanner__interior_contenido{
-
+        &__contenido{
+            background-color: red;
         }
     }
+}
+
+/*works*/
+
+.works{
+    &__h1{}
+    &__grid{
+        article{
+            a{
+
+            }
+            h4{
+                background-color: red;
+            }
+        }
+    }
+
 }
