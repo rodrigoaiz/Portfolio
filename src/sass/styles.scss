@@ -93,10 +93,119 @@ $font-size-base:1.5rem !default;
 .topbanner{
     width: 100%;
     min-height:100vh;
-    background: $color__base--negromorado;
+    //filter: contrast(170%) brightness(1000%);
+
+    background: linear-gradient(20deg, rebeccapurple, transparent), url('../assets/noise.svg');
     font-family: $tipo__textos;
     @include d-flex-column;
     @include d-flex-centro;
+
+  /* Chrome-specific
+  @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .topbanner {
+      filter: contrast(290%) brightness(1000%);
+    }
+  }*/
+
+    &__circulos{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        @keyframes animate{
+            0%{
+                opacity:1;
+                border-radius: 20%;
+                transform: translateY(0px);
+               // transform: rotate(0deg);
+            }
+            100%{
+                opacity:0;
+                border-radius: 50%;
+                transform: translateY(-2000px) rotate(720deg);
+               // transform: rotate(720deg);
+            }
+        }
+        div{
+          width: 2rem;
+          min-height: 2rem;
+          border: 6px solid indigo;
+          background-color:rgba(193, 67, 109,0.2);
+          position: absolute;
+          display: block;
+          list-style: none;
+          bottom: -550px;
+          animation: animate 15s linear infinite;
+          z-index: 1;
+
+          filter: blur(25px);
+        }
+        div:nth-child(1){
+          width: 16rem;
+          height: 16rem;
+          left: 25%;
+          animation-delay: 0s;
+        }
+        div:nth-child(2){
+          width: 1rem;
+          height: 1rem;
+          left: 10%;
+          animation-delay: 2s;
+          animation-duration: 12s;
+        }
+        div:nth-child(3){
+          width: 7rem;
+          height: 7rem;
+          left: 90%;
+          animation-duration: 5s;
+        }
+        div:nth-child(4){
+          width: 9rem;
+          height: 9rem;
+          left: 5%;
+          animation-delay: 2s;
+          animation-duration: 4s;
+        }
+        div:nth-child(5){
+          width: 11rem;
+          height: 11rem;
+          left: 65%;
+          animation-delay: 3s;
+        }
+        div:nth-child(6){
+          width: 4rem;
+          height: 4rem;
+          left: 25%;
+          animation-delay: 2s;
+          animation-duration: 9s;
+        }
+        div:nth-child(7){
+          width: 29rem;
+          height: 29rem;
+          left: 50%;
+        }
+        div:nth-child(8){
+          width: 5rem;
+          height: 5rem;
+          left: 95%;
+        }
+        div:nth-child(9){
+          width: 7rem;
+          height: 7rem;
+          left: 15%;
+          animation-delay: 6s;
+          animation-duration: 5s;
+        }
+        div:nth-child(10){
+          width: 7rem;
+          height: 7rem;
+          left: 75%;
+          animation-delay: 4s;
+          animation-duration: 4s;
+        }
+    }
     &__h1{
         font-family: $tipo__titulos;
         font-size: 5em;
@@ -115,7 +224,7 @@ $font-size-base:1.5rem !default;
         @include d-flex-centro;
         background-color: $color__base--verde;
         position: relative;
-        z-index:1;
+        z-index:5;
         &__contenido{
             background-color: red;
         }

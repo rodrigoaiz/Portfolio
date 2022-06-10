@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -8,8 +7,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'public/js'),
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist'),
+      assetModuleFilename: 'images/[hash][ext][query]'
     },
     watch: true,
     module: {
@@ -37,19 +37,11 @@ module.exports = {
                 ]
             },
             {
-                test: /\.jpe?g$|\.gif$|\.png$|\.PNG$|\.svg$/,
-                use: [
-                  {
-                    loader: 'url-loader',
-                    options: {
-                      limit: false,
-                      name: '../images/[name].[ext]'
-                    },
-                  },
-                ],
+                test: /\.(jpe?g|png|gif|svg|webp)$/i,
+                type: 'asset/resource'
             },
             {
-                test: /\.(svg|eot|woff|woff2|ttf)$/,
+                test: /\.(eot|woff|woff2|ttf)$/,
                 type: 'asset/inline'
             },
         ],
@@ -57,16 +49,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html",
-            filename: "../index.html",
+            filename: "./index.html",
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "../css/estilos.css",
+            filename: "./css/estilos.css",
           }),
-        new webpack.ProvidePlugin({
-          $: 'jquery',
-          jQuery: 'jquery',
-        }),
 
     ]
 };
