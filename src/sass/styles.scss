@@ -84,10 +84,10 @@ $font-size-base:1.5rem !default;
 
                   }
                   &:hover,&focus{
-                    color:rgb(233, 209, 209);
+                    color:$color__base--negromorado;
                     box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
                     transform: scale(115%);
-                    background:#85244D;
+                    background:$color__amarillo;
                   }
                   &:focus{
 
@@ -136,29 +136,42 @@ $font-size-base:1.5rem !default;
 }
 /* menu redes*/
 .redes{
-    //width: 5%;
-    min-height: 10em;
+    width: min(25%, 8rem);
     align-items:center;
     position: fixed;
-    top: 10%;
-    transform: translateY(-50%);
+    top: 90%;
+  //  transform: translateY(-50%);
     left: 0.5rem;
     z-index: 10;
     &__ul{
-        margin: 0;
-        padding-left: 0;
-        display: flex;
-        flex-flow: row ;
+      margin: 0;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+
         li{
             list-style-type: none;
             margin: 0;
+            a{
+              text-decoration: none;
+              :hover{
+                fill: $color__amarillo;
+                transform: scale(1.1);
+                transition: all ease 0.5s;
+              }
+            }
             svg{
-                width:clamp(1.5rem, 2.5rem, 2.5rem);
+                width:clamp(0.5rem, 1.5rem, 2rem);
                 min-height: 1.5em;
                 fill: $color__blanco;
-                transition: all ease 1s;}
+                transition: all ease 1s;
+              }
         }
     }
+}
+.quitar-redes{
+ top: -10%;
+ transition: all ease 1s;
 }
 .fondo__circulos{
   transition: all ease 1s;

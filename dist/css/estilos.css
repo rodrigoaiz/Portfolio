@@ -63,10 +63,10 @@
   border-radius: 0;
 }
 .header__nav ul li button:hover, .header__nav ul li buttonfocus {
-  color: rgb(233, 209, 209);
+  color: rgb(12, 9, 29);
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: scale(115%);
-  background: #85244D;
+  background: rgb(255, 210, 0);
 }
 .header-down {
   animation: scale 1.5s both;
@@ -100,34 +100,46 @@
 
 /* menu redes*/
 .redes {
-  min-height: 10em;
+  width: min(25%, 8rem);
   align-items: center;
   position: fixed;
-  top: 10%;
-  transform: translateY(-50%);
+  top: 90%;
   left: 0.5rem;
   z-index: 10;
 }
 .redes__ul {
   margin: 0;
   padding-left: 0;
-  display: flex;
-  flex-flow: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
 }
 .redes__ul li {
   list-style-type: none;
   margin: 0;
 }
+.redes__ul li a {
+  text-decoration: none;
+}
+.redes__ul li a :hover {
+  fill: rgb(255, 210, 0);
+  transform: scale(1.1);
+  transition: all ease 0.5s;
+}
 .redes__ul li svg {
-  width: 2.5rem;
+  width: 1.5rem;
   min-height: 1.5em;
   fill: rgb(236, 235, 243);
   transition: all ease 1s;
 }
 
+.quitar-redes {
+  top: -10%;
+  transition: all ease 1s;
+}
+
 .fondo__circulos {
   transition: all ease 1s;
-  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/60ff043674bf10527a49.svg);
+  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
   filter: contrast(270%) brightness(100%);
   /*Chrome-specific*/
   position: fixed;
@@ -232,7 +244,7 @@
 }
 
 .fondo-down {
-  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/60ff043674bf10527a49.svg);
+  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
   filter: contrast(200%) brightness(200%);
   /*Chrome-specific*/
 }
