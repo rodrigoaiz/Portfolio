@@ -28,11 +28,11 @@
 .header__h1 {
   font-family: "DM Serif Text", serif;
   line-height: normal;
-  color: rgb(236, 235, 243);
 }
 .header__h1 a {
   text-decoration: none;
   transition: all ease 1s;
+  color: rgb(236, 235, 243);
 }
 .header__h1 a:link {
   color: rgb(236, 235, 243);
@@ -44,13 +44,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .header__nav ul {
   width: 100%;
-  /*           display: flex;
-            flex-flow: row;
-            justify-content: space-evenly;
-            align-items: center; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   list-style: none;
@@ -62,12 +59,16 @@
   margin: 0 2em;
   border-radius: 0;
 }
+.header__nav ul li button:link {
+  color: rgb(236, 235, 243);
+}
 .header__nav ul li button:hover, .header__nav ul li buttonfocus {
-  color: rgb(12, 9, 29);
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  color: rgb(133, 33, 81);
+  font-weight: bolder;
   transform: scale(115%);
   background: rgb(255, 210, 0);
 }
+
 .header-down {
   animation: scale 1.5s both;
   max-height: 5rem;
@@ -100,10 +101,10 @@
 
 /* menu redes*/
 .redes {
-  width: min(25%, 8rem);
+  width: min(30%, 9rem);
   align-items: center;
   position: fixed;
-  top: 90%;
+  top: 95%;
   left: 0.5rem;
   z-index: 10;
 }
@@ -111,30 +112,40 @@
   margin: 0;
   padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(1.5rem, 1fr));
+  overflow: visible;
 }
 .redes__ul li {
   list-style-type: none;
   margin: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
 }
 .redes__ul li a {
   text-decoration: none;
 }
 .redes__ul li a :hover {
   fill: rgb(255, 210, 0);
-  transform: scale(1.1);
   transition: all ease 0.5s;
 }
 .redes__ul li svg {
-  width: 1.5rem;
+  width: 1.55rem;
   min-height: 1.5em;
   fill: rgb(236, 235, 243);
   transition: all ease 1s;
 }
+.redes__ul li .last {
+  width: 0.75rem;
+  fill: rgba(240, 248, 255, 0.418);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 
 .quitar-redes {
   top: -10%;
-  transition: all ease 1s;
+  transition: all ease 0.5s;
 }
 
 .fondo__circulos {
@@ -302,10 +313,64 @@
 .works {
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(255, 210, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.works__grid article h4 {
-  background-color: red;
+.works__h1 {
+  font-family: "DM Serif Text", serif;
+  font-size: clamp(3rem, 6vw, 7rem);
+  color: white;
+  margin: 5rem 0;
+}
+.works__h4 {
+  font-family: "DM Serif Text", serif;
+  font-weight: bolder;
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: white;
+}
+.works__grid {
+  width: min(1400px, 100%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: clamp(2rem, 3vw, 3rem);
+}
+.works__article {
+  min-height: 20rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.works__article img {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  transition: all ease 1s;
+}
+.works__article img:hover {
+  transform: translate(-60%, -60%);
+  pointer-events: all;
+  transition: all ease 0.5s;
+  opacity: 0.7;
+}
+.works__article__cont {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 11;
+}
+.works__article__cont__info {
+  padding: 1rem;
+  width: 100%;
+  min-height: 20rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 /*!***********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css ***!
