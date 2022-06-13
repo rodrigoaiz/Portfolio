@@ -148,6 +148,7 @@
   transition: all ease 0.5s;
 }
 
+/*fondo */
 .fondo__circulos {
   transition: all ease 1s;
   background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
@@ -322,6 +323,7 @@
   font-size: clamp(3rem, 6vw, 7rem);
   color: white;
   margin: 5rem 0;
+  text-align: center;
 }
 .works__h4 {
   font-family: "DM Serif Text", serif;
@@ -371,6 +373,92 @@
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+}
+
+/*Me*/
+.about {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 5rem;
+  padding: 5rem 0;
+  background-color: rgb(114, 34, 44);
+  position: relative;
+}
+.about__h1 {
+  font-family: "DM Serif Text", serif;
+  font-size: clamp(3rem, 6vw, 7rem);
+  color: white;
+  margin: 5rem 0;
+  text-align: center;
+}
+.about__h2 {
+  font-family: "DM Serif Text", serif;
+  font-size: clamp(3rem, 6vw, 7rem);
+  color: white;
+  margin: 5rem 0;
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 4.5rem);
+}
+.about__h3 {
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 3rem);
+  color: rgb(236, 235, 243);
+  text-align: left;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+.about p {
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(1rem, 2vw, 2rem);
+  color: white;
+  text-shadow: 0 0 0.5rem rgb(12, 9, 29);
+}
+.about__interior {
+  width: min(1400px, 80%);
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  z-index: 11;
+  position: relative;
+  pointer-events: none;
+  min-height: 20vh;
+  overflow: hidden;
+}
+.about__fondo {
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  z-index: 1;
+}
+.about__fondo img {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.5);
+  filter: blur(5px);
+  transition: all ease 0.5s;
+}
+.about__fondo img:hover {
+  filter: blur(0);
+  transition: all ease 0.5s;
+}
+.about__skills {
+  width: 100%;
+  display: grid;
+  margin-top: clamp(1rem, 2vw, 2rem);
+}
+.about__ul {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.about__ul__li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: rgb(236, 235, 243);
+  font-size: clamp(1rem, 2vw, 2rem);
+  display: flex;
 }
 /*!***********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css ***!

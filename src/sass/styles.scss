@@ -22,6 +22,13 @@ $font-size-base:1.5rem !default;
     justify-content: center;
     align-items: center;
 }
+@mixin titulo-tamano {
+    font-family: $tipo__titulos;
+    font-size: clamp(3rem, 6vw, 7rem);
+    color: white;
+    margin: 5rem 0;
+    text-align: center;
+}
 .section{
   z-index: 1;
   width: 100%;
@@ -177,6 +184,7 @@ $font-size-base:1.5rem !default;
  top: -10%;
  transition: all ease 0.5s;
 }
+/*fondo */
 .fondo__circulos{
   transition: all ease 1s;
   background: linear-gradient(111.6deg,  rgba(193,145,103,0.81) -0.5%, rgba(84,20,80,0.76) 50.9%, rgba(8,52,70,0.85) 100%), url('../assets/noise.svg');
@@ -351,10 +359,7 @@ $font-size-base:1.5rem !default;
   flex-direction: column;
   align-items: center;
     &__h1{
-      font-family: $tipo__titulos;
-      font-size: clamp(3rem, 6vw, 7rem);
-      color: white;
-      margin: 5rem 0;
+      @include titulo-tamano();
     }
     &__h4{
       font-family: $tipo__titulos;
@@ -409,4 +414,87 @@ $font-size-base:1.5rem !default;
         }
       }
     }
+}
+
+/*Me*/
+.about{
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 5rem;
+  padding: 5rem 0;
+  background-color:$color__rojo-tenue;
+  position: relative;
+  &__h1{
+    @include titulo-tamano();
+  }
+  &__h2{
+    @include titulo-tamano();
+    font-size: clamp(1.5rem, 4vw, 4.5rem);
+  }
+  &__h3{
+    font-family: $tipo__textos;
+    font-size: clamp(1.2rem, 3vw, 3rem);
+    color: $color__blanco;
+    text-align: left;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+  }
+  p{
+    font-family: $tipo__textos;
+    font-size: clamp(1rem, 2vw, 2rem);
+    color: white;
+    text-shadow: 0 0 0.5rem $color__base--negromorado
+  }
+  &__interior{
+    width: min(1400px, 80%);
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    z-index: 11;
+    position: relative;
+    pointer-events: none;
+    min-height: 20vh;
+    overflow: hidden;
+  }
+  &__fondo{
+    width:100%;
+    min-height:100vh;
+    position: absolute;
+    z-index: 1;
+
+    img{
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.5);
+      filter: blur(5px);
+      transition: all ease 0.5s;
+
+    }
+    img:hover{
+        filter: blur(0);
+        transition: all ease 0.5s;
+
+      }
+  }
+  &__skills{
+    width: 100%;
+    display: grid;
+    margin-top: clamp(1rem, 2vw, 2rem);
+  }
+  &__ul{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+
+    &__li{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color:$color__blanco;
+      font-size: clamp(1rem, 2vw, 2rem);
+      display: flex;
+    }
+  }
 }
