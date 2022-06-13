@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
-//@import "~rfs/scss";
+@import "~rfs/scss";
 $color__rojo: rgb(202, 22, 43);
 $color__rojo-tenue: rgb(114, 34, 44);
 $color__amarillo: rgb(255, 210, 0);
@@ -24,23 +24,23 @@ $font-size-base:1.5rem !default;
 }
 .section{
   z-index: 1;
+  width: 100%;
 }
 /* menu header*/
 
 .header{
-    width: 90%;
+    width: 100%;
+    transform: scale(0.9);
     min-height: 2em;
-    display: flex;
-    flex-flow: row  wrap;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     position: fixed;
     margin: auto;
     left: 0;
     right: 0;
     top: 1rem;
     z-index: 11;
-    border-radius: 10px;
+
     transition: all ease 1s;
     &__h1{
         font-family: $tipo__titulos;
@@ -59,16 +59,17 @@ $font-size-base:1.5rem !default;
     }
     &__nav{
         display: flex;
-        flex-flow: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         ul{
-            display: flex;
-            flex-flow: row;
-            list-style: none;
-            padding-left: 0;
-            align-items: center;
-            justify-content: center;
+          width: 100%;
+/*           display: flex;
+          flex-flow: row;
+          justify-content: space-evenly;
+          align-items: center; */
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+          list-style: none;
             li{
 
 
@@ -85,8 +86,8 @@ $font-size-base:1.5rem !default;
                   &:hover,&focus{
                     color:rgb(233, 209, 209);
                     box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-                    transform: translateY(0.25em) scale(120%);
-                    background:rgba(164, 120, 208, 0.9);
+                    transform: scale(115%);
+                    background:#85244D;
                   }
                   &:focus{
 
@@ -100,21 +101,28 @@ $font-size-base:1.5rem !default;
 
 .header-down{
 
-    width: 100%;
-    max-height: 3em;
-    background-color:$color__base--purpura;
-    mix-blend-mode:luminosity;
-    display: flex;
-    flex-flow: row  no-wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding:0 5rem;
+  animation: scale 1.5s both;
+
+
+@keyframes scale {
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+    max-height: 5rem;
+    background-color: rgba(208, 94, 84, 0.863);
+
+    padding:0 0.5rem;
     position: fixed;
     z-index: 11;
     border-radius:0;
     margin: 0;
     top: 0;
-    transition: all ease 1s;
+    //transition: all ease 1s;
     h1{
       margin: 0;
       font-size: 1.5rem;
@@ -128,21 +136,27 @@ $font-size-base:1.5rem !default;
 }
 /* menu redes*/
 .redes{
-    width: 5%;
+    //width: 5%;
     min-height: 10em;
     align-items:center;
     position: fixed;
-    top: 50%;
+    top: 10%;
     transform: translateY(-50%);
-    left: 1em;
+    left: 0.5rem;
     z-index: 10;
     &__ul{
-        background-color: red;
         margin: 0;
         padding-left: 0;
+        display: flex;
+        flex-flow: row ;
         li{
             list-style-type: none;
             margin: 0;
+            svg{
+                width:clamp(1.5rem, 2.5rem, 2.5rem);
+                min-height: 1.5em;
+                fill: $color__blanco;
+                transition: all ease 1s;}
         }
     }
 }
@@ -188,7 +202,7 @@ $font-size-base:1.5rem !default;
           animation: animate 25s linear infinite;
           z-index: 1;
           mix-blend-mode:luminosity;
-          filter: blur(25.0px);
+          //filter: blur(25.0px);
         }
         div:nth-child(1){
           width: 16rem;
@@ -197,8 +211,8 @@ $font-size-base:1.5rem !default;
           animation-delay: 3s;
         }
         div:nth-child(2){
-          width: 1rem;
-          height: 1rem;
+          width: 2rem;
+          height: 2rem;
           left: 10%;
           animation-delay: 2s;
           animation-duration: 12s;
@@ -214,7 +228,7 @@ $font-size-base:1.5rem !default;
           height: 9rem;
           left: 5%;
           animation-delay: 2s;
-          animation-duration: 4s;
+          animation-duration: 11s;
         }
         div:nth-child(5){
           width: 11rem;
@@ -255,13 +269,13 @@ $font-size-base:1.5rem !default;
         }
     }
 .fondo-down{
-  transition: all ease 1s;
+ // transition: all ease 1s;
       background: linear-gradient(111.6deg,  rgba(193,145,103,0.81) -0.5%, rgba(84,20,80,0.76) 50.9%, rgba(8,52,70,0.85) 100%), url('../assets/noise.svg');
-    filter: contrast(270%) brightness(600%);
+    filter: contrast(200%) brightness(200%);
     /*Chrome-specific*/
     @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
       .topbanner {
-        filter: contrast(290%) brightness(1000%);
+        filter: contrast(100%) brightness(100%);
       }
     }
 }
@@ -276,21 +290,22 @@ $font-size-base:1.5rem !default;
 
     &__h1{
         font-family: $tipo__titulos;
-        font-size:8em;
+        font-size: clamp(3rem, 6vw, 7rem);
         text-align: center;
     }
+
     &__h2{
         font-family: $tipo__titulos;
-        font-size: 3em;
+        font-size: clamp(1.5rem, 3vw, 3rem);
         text-align: center;
     }
     &__p{
       font-family: $tipo__textos;
       text-align: center;
-        font-size: 2em;
+      font-size: clamp(1rem, 2vw, 2rem);
     }
     &__interior{
-        width: 60%;
+        width: min(1020px, 90%);
         min-height: 50vh;
         @include d-flex-column;
         @include d-flex-centro;
@@ -315,6 +330,7 @@ $font-size-base:1.5rem !default;
 /*works*/
 
 .works{
+  width: 100%;
   min-height: 100vh;
   background-color:$color__amarillo;
     &__h1{}
