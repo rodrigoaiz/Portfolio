@@ -151,7 +151,7 @@
 /*fondo */
 .fondo__circulos {
   transition: all ease 1s;
-  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
+  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/60ff043674bf10527a49.svg);
   filter: contrast(270%) brightness(100%);
   /*Chrome-specific*/
   position: fixed;
@@ -256,7 +256,7 @@
 }
 
 .fondo-down {
-  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
+  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/60ff043674bf10527a49.svg);
   filter: contrast(200%) brightness(200%);
   /*Chrome-specific*/
 }
@@ -310,6 +310,7 @@
     filter: contrast(290%) brightness(1000%);
   }
 }
+
 /*works*/
 .works {
   width: 100%;
@@ -422,6 +423,12 @@
   pointer-events: none;
   min-height: 20vh;
   overflow: hidden;
+}
+.about__interior__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(2rem, 3vw, 3rem);
 }
 .about__fondo {
   width: 100%;

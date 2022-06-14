@@ -674,7 +674,7 @@ eval("document.addEventListener(\"DOMContentLoaded\", function () {\n  let cerra
   \******************************/
 /***/ (() => {
 
-eval("let foto = document.getElementById('foto');\nlet about = document.getElementById('about');\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  about.addEventListener('mousemove', function (e) {\n    foto.style.right = e.clientX / 2 + 1 + 'px';\n    foto.style.top = e.clientY / 1 + 'px';\n  });\n});\n\n//# sourceURL=webpack://portafolio/./src/js/fondoabout.js?");
+eval("let foto = document.getElementById('foto');\nlet about = document.getElementById('about');\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  about.addEventListener('mousemove', function (e) {\n    foto.style.right = e.clientX / 2 + 1 + 'px'; //  foto.style.top = e.clientY / 1 + 'px';\n  });\n});\n\n//# sourceURL=webpack://portafolio/./src/js/fondoabout.js?");
 
 /***/ }),
 
