@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "~rfs/scss";
+//@import url(reset.scss);
 $color__rojo: rgb(202, 22, 43);
 $color__rojo-tenue: rgb(114, 34, 44);
 $color__amarillo: rgb(255, 210, 0);
@@ -433,6 +434,7 @@ $font-size-base:1.5rem !default;
     color: $color__blanco;
     text-align: left;
     margin-bottom: clamp(1rem, 2vw, 2rem);
+    font-weight: bold;
   }
   p{
     font-family: $tipo__textos;
@@ -454,7 +456,7 @@ $font-size-base:1.5rem !default;
       width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: clamp(2rem, 3vw, 3rem);
+      gap: clamp(3rem, 3vw, 3rem);
     }
   }
   &__fondo{
@@ -487,15 +489,14 @@ $font-size-base:1.5rem !default;
   &__ul{
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-
-
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 0;
     &__li{
       list-style: none;
       padding: 0;
       margin: 0;
       color:$color__blanco;
-      font-size: clamp(1rem, 2vw, 2rem);
+      font-size: clamp(1rem, 1vw, 1rem);
       display: flex;
     }
   }
