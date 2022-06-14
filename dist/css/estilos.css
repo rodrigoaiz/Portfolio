@@ -5,6 +5,11 @@
 /*!*******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.scss (1) ***!
   \*******************************************************************************************************************/
+@charset "UTF-8";
+:root {
+  --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.55);
+}
+
 .section {
   z-index: 1;
   width: 100%;
@@ -13,7 +18,7 @@
 /* menu header*/
 .header {
   width: 100%;
-  transform: scale(0.9);
+  transform: scale(0.9) var(--bounceEasing);
   min-height: 2em;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -107,6 +112,7 @@
   top: 95%;
   left: 0.5rem;
   z-index: 10;
+  transition: all ease 1s;
 }
 .redes__ul {
   margin: 0;
@@ -136,15 +142,19 @@
   transition: all ease 1s;
 }
 .redes__ul li .last {
-  width: 0.75rem;
-  fill: rgba(240, 248, 255, 0.418);
+  width: 1rem;
+  fill: rgba(240, 248, 255, 0.8);
   display: flex;
   flex-flow: column;
   align-items: center;
 }
 
 .quitar-redes {
-  top: -10%;
+  top: 10%;
+  transition: all ease 0.5s;
+}
+.quitar-redes .last {
+  transform: rotate(180deg);
   transition: all ease 0.5s;
 }
 
@@ -468,6 +478,87 @@
   color: rgb(236, 235, 243);
   font-size: clamp(1rem, 1vw, 1rem);
   display: flex;
+}
+
+/* MODALS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.modals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: center; */
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in;
+  z-index: 99999;
+  width: 100%;
+  min-height: 100vh;
+}
+.modals__top {
+  width: 100%;
+  max-height: 60%;
+  overflow: hidden;
+  background-color: rgb(12, 9, 29);
+}
+.modals__top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modals__open {
+  cursor: pointer;
+}
+.modals__close {
+  border: 1px solid rgb(12, 9, 29);
+}
+.modals.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.modals__dialog {
+  position: relative;
+  height: 100vh;
+  background: rgb(236, 235, 243);
+  overflow-y: auto;
+}
+.modals__header {
+  padding: 0.5rem;
+  font-family: "DM Serif Text", serif;
+  font-size: clamp(1.5rem, 4vw, 4.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+.modals__content {
+  width: clamp(80%, 100px, 100%);
+  margin: 0 auto;
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  color: rgb(12, 9, 29);
+  text-align: left;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+.modals__footer {
+  background: teal;
+}
+
+/* SLIDE TOP ANIMATION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+[data-animation=slidesInOutTop] .modals__dialog {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.5s var(--bounceEasing);
+}
+
+[data-animation=slidesInOutTop].is-visible .modals__dialog {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.2s;
 }
 /*!***********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css ***!

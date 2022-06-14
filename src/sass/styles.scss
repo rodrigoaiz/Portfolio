@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "~rfs/scss";
 //@import url(reset.scss);
+:root{
+  --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.55);
+}
 $color__rojo: rgb(202, 22, 43);
 $color__rojo-tenue: rgb(114, 34, 44);
 $color__amarillo: rgb(255, 210, 0);
@@ -38,7 +41,7 @@ $font-size-base:1.5rem !default;
 
 .header{
     width: 100%;
-    transform: scale(0.9);
+    transform: scale(0.9) var(--bounceEasing);
     min-height: 2em;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -143,6 +146,7 @@ $font-size-base:1.5rem !default;
   //  transform: translateY(-50%);
     left: 0.5rem;
     z-index: 10;
+    transition: all ease 1s;
     &__ul{
       margin: 0;
       padding-left: 0;
@@ -172,8 +176,8 @@ $font-size-base:1.5rem !default;
                 transition: all ease 1s;
               }
               .last{
-                width:clamp(0.55rem, 0.75rem, 0.75rem);
-                fill: rgba(240, 248, 255, 0.418);
+                width:clamp(0.55rem, 1rem, 1rem);
+                fill: rgba(240, 248, 255, 0.8);
                 display: flex;
                 flex-flow: column;
                 align-items: center;
@@ -182,8 +186,12 @@ $font-size-base:1.5rem !default;
     }
 }
 .quitar-redes{
- top: -10%;
+ top: 10%;
  transition: all ease 0.5s;
+ .last{
+  transform: rotate(180deg);
+  transition: all ease 0.5s;
+ }
 }
 /*fondo */
 .fondo__circulos{
@@ -500,4 +508,84 @@ $font-size-base:1.5rem !default;
       display: flex;
     }
   }
+}
+
+/* MODALS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.modals{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: center; */
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in;
+  z-index: 99999;
+  width: 100%;
+  min-height: 100vh;
+  &__top{
+    width: 100%;
+    max-height:60%;
+    overflow: hidden;
+    background-color: $color__base--negromorado;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__open{
+    cursor: pointer;
+  }
+  &__close{
+    border: 1px solid $color__base--negromorado;
+  }
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  &__dialog {
+    position: relative;
+    height:100vh;
+    background:$color__blanco;
+    overflow-y:auto;
+  }
+  &__header{
+    padding:0.5rem;
+    font-family: $tipo__titulos;
+    font-size:clamp(1.5rem, 4vw, 4.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
+  &__content{
+    width:clamp(80%, 100px, 100%);
+    margin: 0 auto;
+    font-family: $tipo__textos;
+    font-size: clamp(0.5rem, 1vw, 1rem);
+    color: $color__base--negromorado;
+    text-align: left;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+  }
+  &__footer {
+    background:teal;
+  }
+}
+/* SLIDE TOP ANIMATION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+[data-animation="slidesInOutTop"] .modals__dialog {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.5s var(--bounceEasing);
+}
+
+[data-animation="slidesInOutTop"].is-visible .modals__dialog {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.2s;
 }
