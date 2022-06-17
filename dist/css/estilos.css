@@ -10270,7 +10270,7 @@ textarea.form-control-lg {
 /*fondo */
 .fondo__circulos {
   transition: all ease 1s;
-  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
+  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/60ff043674bf10527a49.svg);
   filter: contrast(270%) brightness(100%);
   /*Chrome-specific*/
   position: fixed;
@@ -10375,7 +10375,7 @@ textarea.form-control-lg {
 }
 
 .fondo-down {
-  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/33b94308ef8a048d368f.svg);
+  background: linear-gradient(111.6deg, rgba(193, 145, 103, 0.81) -0.5%, rgba(84, 20, 80, 0.76) 50.9%, rgba(8, 52, 70, 0.85) 100%), url(../images/60ff043674bf10527a49.svg);
   filter: contrast(200%) brightness(200%);
   /*Chrome-specific*/
 }
@@ -10447,7 +10447,7 @@ textarea.form-control-lg {
   grid-gap: 1rem 5rem;
 }
 .works__interior__caja {
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   background-color: rgba(255, 255, 255, 0.733);
   padding: 1rem 2rem;
   position: relative;

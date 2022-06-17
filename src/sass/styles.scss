@@ -371,7 +371,7 @@ $font-size-base:1.5rem !default;
       grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
       grid-gap: 1rem 5rem;
       &__caja{
-        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
         background-color:rgba(255, 255, 255, 0.733);
         padding: 1rem 2rem;
         position: relative;
