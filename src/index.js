@@ -1,8 +1,8 @@
-import 'bootstrap';
-import 'bootstrap/scss/bootstrap.scss';
+//import 'bootstrap';
+//import 'bootstrap/scss/bootstrap.scss';
+//import 'normalize.css/normalize.css';
 import './sass/styles.scss';
 import './js/menu.js';
-//import 'normalize.css/normalize.css';
 import './js/cerrarredes.js';
 import './js/fondoabout.js';
 import './js/modals.js';
