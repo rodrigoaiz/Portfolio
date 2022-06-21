@@ -21,6 +21,9 @@ ROOT
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.55);
 }
 
+$tipo__titulos: 'DM Serif Text', serif;
+$tipo__textos: 'Work Sans', sans-serif;
+
 .section{
   z-index: 1;
   width: 100%;
@@ -62,7 +65,7 @@ MENU HEADER
               color:  $color__blanco;;
             }
             &:hover,&focus{
-              color:$color__base--fiusha;
+              color:$color__base--negromorado;
             }
         }
     }
@@ -77,6 +80,7 @@ MENU HEADER
                 cursor: pointer;
                 text-decoration: none;
                 transition: all ease 0.5s;
+                font-family:$tipo__textos;
                 color:  $color__blanco;
                 margin:0.5rem 1rem;
                 border-radius: 0;
@@ -87,10 +91,10 @@ MENU HEADER
                 }
                 &:hover,&focus{
 
-                  color:$color__base--purpura;
+                  //color:$color__base--purpura;
                   font-weight: bolder;
                   transform: scale(115%);
-                  background:$color__amarillo;
+                  background:rgba(255, 208, 0, 0.582);;
                 }
               }
             }
