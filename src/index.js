@@ -1,6 +1,7 @@
 //import 'bootstrap';
 //import 'bootstrap/scss/bootstrap.scss';
 //import 'normalize.css/normalize.css';
+import 'jquery/src/jquery.js';
 import './sass/styles.scss';
 import './js/menu.js';
 import './js/cerrarredes.js';

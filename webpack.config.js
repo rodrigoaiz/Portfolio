@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-
+var $ = require( "jquery" );
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -55,6 +55,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "./css/estilos.css",
           }),
+        /* new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery'
+      }), */
 
     ]
 };

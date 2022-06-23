@@ -1033,86 +1033,145 @@ MODALS
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 **************************************************
 */
-.modals {
+/*
+.modals{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* display: flex;
-  align-items: flex-start;
-  justify-content: center; */
   visibility: hidden;
   opacity: 0;
   transition: all 0.35s ease-in;
   z-index: 99999;
   width: 100%;
   min-height: 100vh;
-  overflow-y: auto;
-}
-.modals__top {
-  width: 100%;
-  max-height: 60%;
-  overflow: hidden;
-  background-color: rgb(31, 25, 65);
-}
-.modals__top img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.modals__open {
-  cursor: pointer;
-}
-.modals__close {
-  border: 1px solid rgb(31, 25, 65);
-}
-.modals.is-visible {
-  visibility: visible;
-  opacity: 1;
-}
-.modals__dialog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  background: rgb(236, 235, 243);
-  overflow-y: auto;
-}
-.modals__header {
-  padding: 0.5rem;
-  font-family: "DM Serif Text", serif;
-  font-size: clamp(1.5rem, 4vw, 4.5rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.5rem;
-}
-.modals__content {
-  width: clamp(80%, 100px, 100%);
-  margin: 0 auto;
-  font-family: "Work Sans", sans-serif;
-  font-size: clamp(0.5rem, 1vw, 1rem);
-  color: rgb(31, 25, 65);
-  text-align: left;
-  margin-bottom: clamp(1rem, 2vw, 2rem);
-}
-.modals__footer {
-  background: teal;
-}
-
+  overflow-y:auto;
+  &__top{
+    width: 100%;
+    max-height:60%;
+    overflow: hidden;
+    background-color: $color__base--negromorado;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__open{
+    cursor: pointer;
+  }
+  &__close{
+    border: 1px solid $color__base--negromorado;
+  }
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  &__dialog {
+    position:absolute;
+    top: 0;
+    left: 0;
+    height:100vh;
+    background:$color__blanco;
+    overflow-y:auto;
+  }
+  &__header{
+    padding:0.5rem;
+    font-family: $tipo__titulos;
+    font-size:clamp(1.5rem, 4vw, 4.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
+  &__content{
+    width:clamp(80%, 100px, 100%);
+    margin: 0 auto;
+    font-family: $tipo__textos;
+    font-size: clamp(0.5rem, 1vw, 1rem);
+    color: $color__base--negromorado;
+    text-align: left;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+  }
+  &__footer {
+    background:teal;
+  }
+} */
 /* SLIDE TOP ANIMATION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[data-animation=slidesInOutTop] .modals__dialog {
+/* [data-animation="slidesInOutTop"] .modals__dialog {
   opacity: 0;
   transform: translateY(-100%);
   transition: all 0.5s var(--bounceEasing);
 }
 
-[data-animation=slidesInOutTop].is-visible .modals__dialog {
+[data-animation="slidesInOutTop"].is-visible .modals__dialog {
   opacity: 1;
   transform: none;
   transition-delay: 0.2s;
+}
+ */
+button {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 13px 20px;
+  border-radius: 4px;
+  transition: box-shadow 0.1s, top 0.1s;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+  top: 0;
+  background: #fff;
+}
+
+.btn:hover {
+  box-shadow: 0 3px 0 transparent;
+  top: 3px;
+}
+
+.btn:active {
+  background: #f2f2f2;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 9999999;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 /*!*******************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/animate.css/animate.css ***!

@@ -630,15 +630,13 @@ MODALS
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 **************************************************
 */
+/*
 .modals{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* display: flex;
-  align-items: flex-start;
-  justify-content: center; */
   visibility: hidden;
   opacity: 0;
   transition: all 0.35s ease-in;
@@ -696,10 +694,10 @@ MODALS
   &__footer {
     background:teal;
   }
-}
+} */
 /* SLIDE TOP ANIMATION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[data-animation="slidesInOutTop"] .modals__dialog {
+/* [data-animation="slidesInOutTop"] .modals__dialog {
   opacity: 0;
   transform: translateY(-100%);
   transition: all 0.5s var(--bounceEasing);
@@ -709,4 +707,63 @@ MODALS
   opacity: 1;
   transform: none;
   transition-delay: 0.2s;
+}
+ */
+button {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 13px 20px;
+  border-radius: 4px;
+  transition: box-shadow 0.1s, top 0.1s;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.3);
+  top: 0;
+  background: #fff;
+}
+.btn:hover {
+  box-shadow: 0 3px 0 transparent;
+  top: 3px;
+}
+.btn:active {
+  background: #f2f2f2;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width:100%;
+  z-index: 9999999;
+
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+.modal-close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0,0,0,0.3);
 }
