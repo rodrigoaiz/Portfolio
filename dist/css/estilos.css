@@ -63,7 +63,6 @@ main {
  */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
   font-size: 1em;
-  margin: 0.67em 0;
   font-weight: inherit;
   font-style: inherit;
   text-decoration: none;
@@ -407,11 +406,11 @@ ROOT
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.55);
 }
 
-.section {
+/* main
+.section{
   z-index: 1;
   width: 100%;
-}
-
+} */
 /*
 **************************************************
 ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -530,28 +529,36 @@ MENU REDES
 **************************************************
 */
 .redes {
-  width: min(30%, 9rem);
   align-items: center;
   position: fixed;
-  top: 95%;
-  left: 0.5rem;
+  top: 92%;
+  right: 0.5rem;
   z-index: 10;
   transition: all ease 1s;
+  backdrop-filter: blur(1rem);
+}
+.redes ul::after {
+  content: "Socials";
+  position: absolute;
+  top: -1.2em;
+  left: 0;
+  font-family: "DM Serif Text", serif;
+  color: rgb(236, 235, 243);
+  border-bottom: 1px solid rgb(236, 235, 243);
+  width: 100%;
 }
 .redes__ul {
   margin: 0;
   padding-left: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1.5rem, 1fr));
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
   overflow: visible;
 }
 .redes__ul li {
   list-style-type: none;
-  margin: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: flex-start;
+  margin: 0.5em;
 }
 .redes__ul li a {
   text-decoration: none;
@@ -723,16 +730,19 @@ TOP BANNER
   font-family: "DM Serif Text", serif;
   font-size: clamp(3rem, 6vw, 7rem);
   text-align: center;
+  margin-bottom: 0.5em;
+  color: rgb(133, 33, 81);
 }
 .topbanner__h2 {
   font-family: "DM Serif Text", serif;
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(1.9rem, 3vw, 3rem);
   text-align: center;
+  margin-bottom: 1em;
 }
 .topbanner__p {
   font-family: "Work Sans", sans-serif;
   text-align: center;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
 }
 .topbanner__interior {
   width: min(1020px, 90%);
@@ -741,11 +751,11 @@ TOP BANNER
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background-color: rgb(236, 235, 243);
+  background-color: #fff;
   position: relative;
   z-index: 5;
   mix-blend-mode: color-dodge;
-  filter: contrast(50%) brightness(100%);
+  filter: contrast(70%) brightness(90%);
   /*Chrome-specific*/
 }
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
@@ -1038,6 +1048,7 @@ MODALS
   z-index: 99999;
   width: 100%;
   min-height: 100vh;
+  overflow-y: auto;
 }
 .modals__top {
   width: 100%;
@@ -1061,7 +1072,9 @@ MODALS
   opacity: 1;
 }
 .modals__dialog {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
   background: rgb(236, 235, 243);
   overflow-y: auto;
