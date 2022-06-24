@@ -780,6 +780,27 @@ Works
   align-items: center;
   /*basado en: https://codepen.io/frederickallen/pen/NZMEMw*/
 }
+.works__empresas {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.works__empresas ul {
+  max-width: 100%;
+}
+.works__empresas li {
+  margin: 2em 0;
+}
+.works__empresas li img {
+  max-width: 10em;
+  max-height: 5em;
+  filter: saturate(0);
+  transition: all ease 0.5s;
+}
+.works__empresas li img:hover {
+  filter: saturate(1);
+}
 @keyframes open {
   0% {
     opacity: 0;
@@ -795,12 +816,16 @@ Works
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem 5rem;
+  margin-top: 2rem;
 }
 .works__interior__caja {
-  font-size: clamp(1rem, 2vw, 1.5rem);
   background-color: rgba(255, 255, 255, 0.733);
   padding: 1rem 2rem;
   position: relative;
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(1em, 1.3vw, 1.2rem);
+  font-weight: 100;
+  color: rgb(31, 25, 65);
 }
 .works__interior__caja::before {
   content: "";
@@ -867,8 +892,17 @@ Works
   font-family: "DM Serif Text", serif;
   font-size: clamp(3rem, 6vw, 7rem);
   color: rgb(236, 235, 243);
-  margin: 5rem 0;
+  margin: 1em 0;
   text-align: center;
+}
+.works__h2 {
+  color: rgb(236, 235, 243);
+  font-family: "DM Serif Text", serif;
+  font-size: clamp(2em, 3vh, 3em);
+  font-weight: bold;
+  margin-bottom: 1em;
+  align-self: start;
+  padding-left: 1rem;
 }
 .works__h4 {
   font-family: "DM Serif Text", serif;
@@ -940,14 +974,14 @@ ME
   font-family: "DM Serif Text", serif;
   font-size: clamp(3rem, 6vw, 7rem);
   color: rgb(236, 235, 243);
-  margin: 5rem 0;
+  margin: 1em 0;
   text-align: center;
 }
 .about__h2 {
   font-family: "DM Serif Text", serif;
   font-size: clamp(3rem, 6vw, 7rem);
   color: rgb(236, 235, 243);
-  margin: 5rem 0;
+  margin: 1em 0;
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 4.5rem);
 }
@@ -1084,6 +1118,9 @@ MODALS
   width: clamp(80%, 100px, 100%);
   margin: 0 auto;
   font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+  color: rgb(31, 25, 65);
   margin-bottom: clamp(1rem, 2vw, 2rem);
   overflow-y: auto;
 }

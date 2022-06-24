@@ -387,6 +387,25 @@ Works
 .works{
   width: 100%;
   min-height: 100vh;
+  &__empresas{
+    @include flex(flex, row, nowrap, space-around, center);
+      ul{
+        max-width: 100%;
+
+      }
+      li{
+        margin: 2em 0;
+        img{
+          max-width: 10em;
+          max-height:  5em;
+          filter: saturate(0);
+          transition: all ease 0.5s;
+          &:hover{
+            filter: saturate(1);
+          }
+        }
+      }
+    }
  @include flex(flex, column, nowrap, center, center);
   @keyframes open {
         0% {
@@ -403,11 +422,12 @@ Works
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
       grid-gap: 1rem 5rem;
+      margin-top: 2rem;
       &__caja{
-        font-size: clamp(1rem, 2vw, 1.5rem);
         background-color:rgba(255, 255, 255, 0.733);
         padding: 1rem 2rem;
         position: relative;
+         @include parrafo($tipo__textos, clamp(1em, 1.3vw, 1.2rem), 100, $color__base--negromorado);
       }
       &__caja::before{
 
@@ -476,6 +496,15 @@ Works
     }
     &__h1{
       @include titulo-tamano();
+    }
+    &__h2{
+        color:$color__blanco;
+        font-family:$tipo__titulos;
+        font-size:clamp(2em, 3vh, 3em);
+        font-weight: bold;
+        margin-bottom: 1em;
+        align-self: start;
+        padding-left: 1rem;
     }
     &__h4{
       font-family: $tipo__titulos;
@@ -678,7 +707,7 @@ MODALS
   &__content{
     width:clamp(80%, 100px, 100%);
     margin: 0 auto;
-    font-family: $tipo__textos;
+    @include parrafo($tipo__textos, 1rem, 100, $color__base--negromorado);
     margin-bottom: clamp(1rem, 2vw, 2rem);
     overflow-y:auto;
     p{
