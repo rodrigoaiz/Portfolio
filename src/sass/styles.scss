@@ -70,12 +70,14 @@ MENU HEADER
         }
     }
     &__nav{
-      @include flex(flex, column, nowrap, center, center);
+      //@include flex(flex, column, nowrap, center, center);
         ul{
           width: 100%;
           @include flex(flex, row, wrap, center, center);
           list-style: none;
             li{
+              width:9em;
+              @include flex(flex, column, nowrap, center, center);
               button{
                 cursor: pointer;
                 text-decoration: none;
@@ -86,12 +88,11 @@ MENU HEADER
                 border-radius: 0;
                 text-align: center;
                 padding: 0.5rem;
+
                 &:link{
                   color:  $color__blanco;
                 }
                 &:hover,&focus{
-
-                  //color:$color__base--purpura;
                   font-weight: bolder;
                   transform: scale(115%);
                   background:rgba(255, 208, 0, 0.582);;
@@ -118,7 +119,7 @@ MENU HEADER
     max-height: 5rem;
     background-color: rgba(208, 94, 84, 0.5);
     backdrop-filter: blur(2em);
-    padding:0 0.5rem;
+    //padding:0 0.5rem;
     position: fixed;
     z-index: 111;
     border-radius:0;
@@ -630,71 +631,6 @@ MODALS
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 **************************************************
 */
-/*
-.modals{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.35s ease-in;
-  z-index: 99999;
-  width: 100%;
-  min-height: 100vh;
-  overflow-y:auto;
-  &__top{
-    width: 100%;
-    max-height:60%;
-    overflow: hidden;
-    background-color: $color__base--negromorado;
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  &__open{
-    cursor: pointer;
-  }
-  &__close{
-    border: 1px solid $color__base--negromorado;
-  }
-  &.is-visible {
-    visibility: visible;
-    opacity: 1;
-  }
-  &__dialog {
-    position:absolute;
-    top: 0;
-    left: 0;
-    height:100vh;
-    background:$color__blanco;
-    overflow-y:auto;
-  }
-  &__header{
-    padding:0.5rem;
-    font-family: $tipo__titulos;
-    font-size:clamp(1.5rem, 4vw, 4.5rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-  }
-  &__content{
-    width:clamp(80%, 100px, 100%);
-    margin: 0 auto;
-    font-family: $tipo__textos;
-    font-size: clamp(0.5rem, 1vw, 1rem);
-    color: $color__base--negromorado;
-    text-align: left;
-    margin-bottom: clamp(1rem, 2vw, 2rem);
-  }
-  &__footer {
-    background:teal;
-  }
-} */
 /* SLIDE TOP ANIMATION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* [data-animation="slidesInOutTop"] .modals__dialog {
@@ -709,61 +645,87 @@ MODALS
   transition-delay: 0.2s;
 }
  */
-button {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+.js-btn-modal{
   cursor: pointer;
-  position: relative;
-}
-
-.btn {
-  font-size: 14px;
-  line-height: 1.4;
-  padding: 13px 20px;
-  border-radius: 4px;
-  transition: box-shadow 0.1s, top 0.1s;
-  box-shadow: 0 3px 0 rgba(0,0,0,0.3);
-  top: 0;
-  background: #fff;
-}
-.btn:hover {
-  box-shadow: 0 3px 0 transparent;
-  top: 3px;
-}
-.btn:active {
-  background: #f2f2f2;
 }
 .modal {
   display: none;
   position: fixed;
-  top: 10px;
-  left: 0;
-  width:100%;
-  z-index: 9999999;
+    top: 0;
+    bottom:0;
 
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-}
-.modal-close-btn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 20px;
-}
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
+  z-index: 160;
+  &__interior{
+    @include flex(flex, column, nowrap, center, center);
+    z-index: 161;
+  }
+  &__top{
+    width: 100%;
+    max-height:20vh;
+    overflow: hidden;
+    background-color: $color__base--negromorado;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__content{
+    width:clamp(80%, 100px, 100%);
+    margin: 0 auto;
+    font-family: $tipo__textos;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+    overflow-y:auto;
+    p{
+      font-size: clamp(1rem, 1vw, 1.5rem);
+      text-align: left;
+      color: $color__base--negromorado;
+    }
+  }
+  &__close-btn {
+    cursor: pointer;
+    position: fixed;
+    right:2rem;
+    z-index: 162;
+    font-family:$tipo__titulos;
+    background-color:$color__amarillo;
+    padding: 0 0.5em;
+    transition: all ease 0.5s;
+    &:hover{
+
+      background-color:$color__base--purpura;
+
+    }
+  }
+  &__close-btn:before, &__close-btn:after {
+    position: absolute;
+    right: -0.6rem;
+    content: ' ';
+    height: 1.5rem;
+    width: 2.5px;
+    top: -3px;
+    background-color:$color__amarillo;
+  }
+  &__close-btn:before {
+    transform: rotate(45deg);
+  }
+  &__close-btn:after {
+    transform: rotate(-45deg);
+  }
+}
 .overlay {
   display: none;
   position: fixed;
-  z-index: 999999;
+  z-index: 150;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
-  background-color: rgba(0,0,0,0.3);
+  min-height: 100%;
+  background-color: white;
+  overflow-y:auto;
 }

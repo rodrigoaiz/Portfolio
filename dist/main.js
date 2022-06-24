@@ -56,7 +56,7 @@ eval("document.addEventListener(\"DOMContentLoaded\", function () {\n  window.ad
   \**************************/
 /***/ (() => {
 
-eval("/* $(document).keyup(function(e) {\n  if (e.keyCode === 27) {\n    $('#overlay').fadeOut();\n    $('.js-modal').fadeOut();\n  }\n}); */\n$('.js-btn-modal').on('click', function () {\n  $('#overlay').fadeIn();\n  $('body').css(\"overflowY\", \"hidden\");\n  var id = $(this).data('id');\n  $('.js-modal[data-id=\"modal' + id + '\"]').fadeIn();\n});\n$('.js-close-btn').on('click', function () {\n  $('body').css(\"overflowY\", \"scroll\");\n  $('#overlay').fadeOut();\n  $('.js-modal').fadeOut();\n});\n/* $('#overlay').on('click', function(){\n  $('body').css(\"overflowY\",\"scroll\");\n  $('#overlay').fadeOut();\n  $('.js-modal').fadeOut();\n});\n */\n\n//# sourceURL=webpack://portafolio/./src/js/modals.js?");
+eval("$(document).keyup(function (e) {\n  if (e.keyCode === 27) {\n    $('#overlay').fadeOut();\n    $('.js-modal').fadeOut();\n    $('body').css(\"overflowY\", \"scroll\");\n  }\n});\n$('.js-btn-modal').on('click', function () {\n  $('#overlay').fadeIn();\n  $('body').css(\"overflowY\", \"hidden\");\n  var id = $(this).data('id');\n  $('.js-modal[data-id=\"modal' + id + '\"]').fadeIn();\n});\n$('.js-close-btn').on('click', function () {\n  $('body').css(\"overflowY\", \"scroll\");\n  $('#overlay').fadeOut();\n  $('.js-modal').fadeOut();\n});\n/* $('#overlay').on('click', function(){\n  $('body').css(\"overflowY\",\"scroll\");\n  $('#overlay').fadeOut();\n  $('.js-modal').fadeOut();\n});\n */\n\n//# sourceURL=webpack://portafolio/./src/js/modals.js?");
 
 /***/ }),
 
