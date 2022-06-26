@@ -508,13 +508,20 @@ Works
     }
     &__h4{
       font-family: $tipo__titulos;
+      position: absolute;
       font-weight: bolder;
-      font-size: clamp(2rem, 3vw, 3rem);
-      color: white;
+      @include parrafo($tipo__titulos, clamp(1.5rem, 1.7vw, 2.5rem), 600, $color__blanco);
+      max-width: 80%;
+      padding: 0.2em;
+      background-color: rgba(184, 47, 92, 0.712);;
+      z-index: 12;
+      top: -1em;
+      left: 0.5em;
+      backdrop-filter: blur(0.2em);
     }
     &__grid{
       width: 100%;
-      margin: 3rem auto 0;
+      margin: 10em auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap:clamp(2rem, 3vw, 3rem);
@@ -522,10 +529,17 @@ Works
     &__article{
       min-height: 20rem;
       width: 100%;
-      overflow: hidden;
       position: relative;
-      img{
+
+
+      &__cont{
+        width: 100%;
+        max-height: 20em;
+        position: absolute;
+        pointer-events: none;
+        z-index: 11;
         overflow: hidden;
+        img{
         position: absolute;
         top: 50%;
         left: 50%;
@@ -539,21 +553,19 @@ Works
         pointer-events: all;
         transition: all ease 0.5s;
         opacity: 0.7;
-
       }
-
-      &__cont{
-        width: 100%;
-        min-height: 100%;
-        position: absolute;
-        pointer-events: none;
-        z-index: 11;
 
         &__info{
           padding: 1rem;
           width: 100%;
           min-height: 20rem;
-          @include flex(flex, column, nowrap, space-between, start);
+          @include flex(flex, column, nowrap, end, end);
+          color:$color__blanco;
+          p{
+            @include parrafo($tipo__textos, clamp(0.9rem,1.2vw, 1.1em), 400, $color__blanco);
+            position: relative;
+            z-index: 19;
+          }
         }
       }
     }
