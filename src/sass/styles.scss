@@ -117,7 +117,7 @@ MENU HEADER
 }
 
     max-height: 5rem;
-    background-color: rgba(208, 94, 84, 0.5);
+    background-color:$color__base--purpuraA;
     backdrop-filter: blur(2em);
     //padding:0 0.5rem;
     position: fixed;
@@ -387,18 +387,22 @@ Works
 .works{
   width: 100%;
   min-height: 100vh;
+  background-color:$color__base--purpura;
+  @include flex(flex, column, nowrap, center, center);
   &__empresas{
-    @include flex(flex, row, nowrap, space-around, center);
+    margin-top: 2rem;
+    @include flex(flex, row, wrap, space-around, center);
       ul{
         max-width: 100%;
-
       }
       li{
-        margin: 2em 0;
+        //margin: 2em 0;
+        align-self: center;
+        justify-self: center;
         img{
           max-width: 10em;
           max-height:  5em;
-          filter: saturate(0);
+          filter: saturate(0.5);
           transition: all ease 0.5s;
           &:hover{
             filter: saturate(1);
@@ -406,15 +410,15 @@ Works
         }
       }
     }
- @include flex(flex, column, nowrap, center, center);
-  @keyframes open {
+
+/*   @keyframes open {
         0% {
           opacity: 0;
         }
         100% {
           opacity: 1;
         }
-      }
+      } */
     &__interior{
       width: min(1400px, 100%);
       min-height: 25vh;
@@ -428,6 +432,14 @@ Works
         padding: 1rem 2rem;
         position: relative;
          @include parrafo($tipo__textos, clamp(1em, 1.3vw, 1.2rem), 100, $color__base--negromorado);
+         &__img{
+          max-width: 15em;
+          display: block;
+          margin: auto;
+         }
+         p{
+          margin-bottom: 2em;
+         }
       }
       &__caja::before{
 
@@ -570,7 +582,37 @@ Works
       }
     }
 }
+/*
+**************************************************
+––––––––––––––––––––––––––––––––––––––––––––––––––
+Nombre neoen
+––––––––––––––––––––––––––––––––––––––––––––––––––
+**************************************************
+*/
+.nombreneon{
+  //min-height: 5rem;
+  //background-color: red;
+  background-size:cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //width: 100%;
+  overflow: hidden;
+   .img{
+    background-image: url("../assets/nombre-neon.webp");
+    background-position:bottom;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    //transform: translateZ(-1px) scale(1.5);
+    /* Force the background image to fill the whole element. */
+    background-size:auto;
+    /* Keep the image from overlapping sibling elements. */
 
+    min-height:15vh;
+  }
+}
 /*
 **************************************************
 ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -583,7 +625,6 @@ ME
   min-height: 100vh;
   margin-top: 5rem;
   padding: 5rem 0;
-  background-color:$color__rojo-tenue;
   position: relative;
   &__h1{
     @include titulo-tamano();
@@ -648,6 +689,10 @@ ME
     width: 100%;
     display: grid;
     margin-top: clamp(1rem, 2vw, 2rem);
+    background-color:$color__base--purpuraA;
+    backdrop-filter:blur(1em);
+    padding:clamp(1rem, 2vw, 2rem);
+
   }
   &__ul{
     text-align: center;
