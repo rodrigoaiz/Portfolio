@@ -9,7 +9,11 @@ module.exports = {
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
-      assetModuleFilename: 'images/[hash][ext][query]'
+      assetModuleFilename: pathData => {
+        const filepath = path.dirname(pathData.filename).split('/').slice(1).join('/');
+        return `${filepath}/[name][ext]`;
+        // recuperado de: https://stackoverflow.com/questions/67723670/how-to-change-path-for-output-images-in-webpack-5
+      },
     },
     watch: true,
     module: {
@@ -38,7 +42,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg|webp)$/i,
-                type: 'asset/resource'
+                type: 'asset/resource',
             },
             {
                 test: /\.(eot|woff|woff2|ttf)$/,

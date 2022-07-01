@@ -8,5 +8,8 @@ import './js/cerrarredes.js';
 import './js/fondoabout.js';
 import './js/modals.js';
 import 'animate.css/animate.css';
+import "@fancyapps/ui/src/Fancybox/Fancybox.js";
+import "@fancyapps/ui/src/Fancybox/Fancybox.scss";
+
 import Josh from 'joshjs';
 const josh = new Josh();
