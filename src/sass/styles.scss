@@ -595,13 +595,16 @@ Nombre neoen
 .nombreneon{
   //min-height: 5rem;
   //background-color: red;
-  background-size:cover;
+ // background-size:cover;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   //width: 100%;
   overflow: hidden;
+  @include media(500px){
+    display: none;
+  }
    .img{
     background-image: url("../assets/nombre-neon.webp");
     background-position:bottom;
@@ -610,10 +613,12 @@ Nombre neoen
     width: 100%;
     //transform: translateZ(-1px) scale(1.5);
     /* Force the background image to fill the whole element. */
-    background-size:auto;
+    background-size:cover;
     /* Keep the image from overlapping sibling elements. */
 
-    min-height:15vh;
+    min-height:85vh;
+
+
   }
 }
 /*
