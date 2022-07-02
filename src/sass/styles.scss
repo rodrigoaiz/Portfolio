@@ -23,6 +23,9 @@ ROOT
 
 $tipo__titulos: 'DM Serif Text', serif;
 $tipo__textos: 'Work Sans', sans-serif;
+.fancybox__caption{
+  @include parrafo($tipo__textos, 1em, 400, $color__base--negromorado);
+}
 /* main
 .section{
   z-index: 1;
@@ -739,16 +742,35 @@ MODALS
   position: fixed;
     top: 0;
     bottom:0;
-
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-
-  z-index: 160;
+    z-index: 160;
   &__interior{
-    @include flex(flex, column, nowrap, center, center);
+    @include flex(flex, column, nowrap, space-around, center);
     z-index: 161;
+  }
+  &__gallery{
+    @include flex(flex, row, wrap, center, center);
+    div{
+      width:clamp(20em, 28rem, 40em);
+      padding-left: 3rem;
+      cursor: pointer;
+      img{
+        max-width: 100%;
+        transition:all ease 0.5s;
+        &:hover{
+          filter: sepia(42%) brightness(72%) saturate(202%);
+          -webkit-filter: sepia(42%) brightness(72%) saturate(202%);
+          -moz-filter: sepia(42%) brightness(72%) saturate(202%);
+        }
+      }
+    }
+  }
+  &__h2{
+    @include parrafo($tipo__titulos, 3em, 100, $color__base--negromorado);
+    margin: 2rem auto;
   }
   &__header{
     @include parrafo($tipo__textos, 2em, 800, $color__base--negromorado);
@@ -791,12 +813,12 @@ MODALS
     border-radius: 0 0 0.5rem 0.5rem;
     box-shadow: 0 0 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
     &:hover{
-
+      color:$color__blanco;
       background-color:$color__base--purpura;
 
     }
   }
-  &__close-btn:before, &__close-btn:after {
+ /*  &__close-btn:before, &__close-btn:after {
     position: absolute;
     right: 0rem;
     content: ' ';
@@ -810,7 +832,7 @@ MODALS
   }
   &__close-btn:after {
     transform: rotate(-45deg);
-  }
+  } */
 }
 .overlay {
   display: none;
