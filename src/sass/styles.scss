@@ -5,7 +5,7 @@ Imports
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 **************************************************
 */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 //@import "~rfs/scss";
 @import"reset.scss";
 @import"colors.scss";
@@ -21,7 +21,7 @@ ROOT
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.55);
 }
 
-$tipo__titulos: 'DM Serif Text', serif;
+$tipo__titulos: 'Frank Ruhl Libre', serif;
 $tipo__textos: 'Work Sans', sans-serif;
 .fancybox__caption{
   @include parrafo($tipo__textos, 1em, 400, $color__base--negromorado);
@@ -55,10 +55,9 @@ MENU HEADER
     z-index: 11;
     transition: all ease 1s;
     &__h1{
-        font-family: $tipo__titulos;
+        @include parrafo($tipo__titulos, clamp(1.5em, 2vw, 2em), 900, $color__base--negromorado);
         line-height: normal;
         text-align: center;
-        font-size: clamp(1.5em, 2vw, 2em);
         margin: 0;
         a{
             text-decoration: none;
@@ -344,15 +343,12 @@ TOP BANNER
     min-height:100vh;
     @include flex(flex, row, nowrap, center, center);
     &__h1{
-        font-family: $tipo__titulos;
-        font-size: clamp(3rem, 6vw, 7rem);
+      @include parrafo($tipo__titulos, clamp(3rem, 6vw, 7rem), 900, $color__base--purpura);
         text-align: center;
         margin-bottom:0.5em;
-        color:$color__base--purpura;
     }
     &__h2{
-        font-family: $tipo__titulos;
-        font-size: clamp(1.9rem, 3vw, 3rem);
+      @include parrafo($tipo__titulos, clamp(1.9rem, 3vw, 3rem), 300, $color__base--purpura);
         text-align: center;
         margin-bottom: 1em;
     }
@@ -756,14 +752,84 @@ MODALS
     @include flex(flex, column, nowrap, space-around, center);
     z-index: 161;
   }
+  &__content{
+    width:100%;
+    margin: 0 auto;
+    @include parrafo($tipo__textos, 1rem, 100, $color__base--negromorado);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+    overflow-y:auto;
+    p{
+      font-size: clamp(1rem, 1vw, 1.5rem);
+      text-align: left;
+      color: $color__base--negromorado;
+    }
+  }
+  &__wrapper{
+    width: 100%;
+    @include flex(flex, row, wrap, space-between, center);
+    padding: 0 1em;
+    @include media(){
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    }
+  }
+  &__description{
+    width:35%;
+    padding-top:1em;
+    @include parrafo($tipo__titulos,1.3rem, 300, $color__base--negromorado);
+    border-top: solid 0.2em $color__base--negromorado;
+    @include media (){
+      width: 95%;
+      font-size: 1rem ;
+
+    }
+  }
+  &__projectdesc{
+    width: 45%;
+    margin-left: auto;
+    margin-top: 1rem;
+    @include parrafo($tipo__titulos,1.3rem, 900, $color__base--negromorado);
+    border-bottom: solid 0.05em $color__base--negromorado;
+
+    @include media (){
+      width: 95%;
+      font-size: 1rem ;
+    }
+    p{
+      @include parrafo($tipo__titulos,1.3rem, 300, $color__base--negromorado);
+      padding-left: 1rem;
+    }
+
+  }
+  &__projectdesc::before{
+    content: "description";
+      position: absolute;
+      top:20%;
+      left: 1rem;
+      @include parrafo($tipo__titulos,10rem,900,#e7e5e5);
+      width: 100%;
+      z-index: -1;
+  }
+  @include media (850px){
+    &__projectdesc::before{
+      display: none;
+    }
+  }
   &__gallery{
+    width: 55%;
+    @include media (){
+      width: 100%;
+    }
     @include flex(flex, row, wrap, center, center);
     div{
-      width:clamp(20em, 28rem, 40em);
-      padding-left: 3em;
+      width:15em;
+      padding-left: 1em;
       max-height: 25em;
       overflow: hidden;
-      margin-top:3em;
+      @include media(){
+        width: 100%;
+      }
       img{
         max-width: 100%;
         transition:all ease 0.5s;
@@ -777,7 +843,11 @@ MODALS
     }
   }
   &__vallery{
+    width: 60%;
     @include flex(flex, row, wrap, center, center);
+    @include media(){
+      width: 100%;
+    }
   }
   &__videocontainer{
     width: 50%;
@@ -808,7 +878,7 @@ MODALS
   }
   &__h2{
     @include parrafo($tipo__titulos, 3em, 100, $color__base--negromorado);
-    margin: 2rem auto;
+    margin:2rem 0 2rem 1rem;
   }
   &__header{
     @include parrafo($tipo__textos, 2em, 800, $color__base--negromorado);
@@ -827,18 +897,7 @@ MODALS
       object-fit: cover;
     }
   }
-  &__content{
-    width:clamp(80%, 100px, 100%);
-    margin: 0 auto;
-    @include parrafo($tipo__textos, 1rem, 100, $color__base--negromorado);
-    margin-bottom: clamp(1rem, 2vw, 2rem);
-    overflow-y:auto;
-    p{
-      font-size: clamp(1rem, 1vw, 1.5rem);
-      text-align: left;
-      color: $color__base--negromorado;
-    }
-  }
+
   &__close-btn {
     cursor: pointer;
     position: fixed;
