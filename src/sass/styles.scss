@@ -760,17 +760,50 @@ MODALS
     @include flex(flex, row, wrap, center, center);
     div{
       width:clamp(20em, 28rem, 40em);
-      padding-left: 3rem;
-      cursor: pointer;
+      padding-left: 3em;
+      max-height: 25em;
+      overflow: hidden;
+      margin-top:3em;
       img{
         max-width: 100%;
         transition:all ease 0.5s;
+        cursor: zoom-in;
         &:hover{
           filter: sepia(42%) brightness(72%) saturate(202%);
           -webkit-filter: sepia(42%) brightness(72%) saturate(202%);
           -moz-filter: sepia(42%) brightness(72%) saturate(202%);
         }
       }
+    }
+  }
+  &__vallery{
+    @include flex(flex, row, wrap, center, center);
+  }
+  &__videocontainer{
+    width: 50%;
+    padding:0.2rem;
+    background: white;
+    display: inline-block;
+    @include media(500px){
+      width: 90%;
+    }
+
+  }
+  &__video{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    &__iframe{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   }
   &__h2{
