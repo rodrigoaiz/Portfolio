@@ -800,6 +800,14 @@ MODALS
       @include parrafo($tipo__titulos,1.3rem, 300, $color__base--negromorado);
       padding-left: 1rem;
     }
+    a{
+      color:$color__azul;
+      transition: all 0.5s ease;
+      &:hover{
+        color:$color__rojo-tenue;
+        text-decoration: underline;
+      }
+    }
 
   }
   &__projectdesc::before{
