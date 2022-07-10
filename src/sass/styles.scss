@@ -80,7 +80,7 @@ MENU HEADER
             li{
               width:9em;
               @include flex(flex, column, nowrap, center, center);
-              button{
+              a{
                 cursor: pointer;
                 text-decoration: none;
                 transition: all ease 0.5s;
@@ -779,6 +779,10 @@ MODALS
     padding-top:1em;
     @include parrafo($tipo__titulos,1.3rem, 300, $color__base--negromorado);
     border-top: solid 0.2em $color__base--negromorado;
+    p{
+      @include parrafo($tipo__textos,0.8em, 300, $color__base--negromorado);
+      margin-bottom: 1em;
+    }
     @include media (){
       width: 95%;
       font-size: 1rem ;
