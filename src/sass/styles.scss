@@ -598,26 +598,80 @@ Nombre neoen
  // background-size:cover;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   //width: 100%;
   overflow: hidden;
+  height:85vh;
+@keyframes neonAnimation {
+ 0% {
+  opacity: 1;
+  }
+  15% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flicker {
+  75% {
+    opacity: 1;
+  }
+  76% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+
   @include media(500px){
     display: none;
   }
    .img{
-    background-image: url("../assets/nombre-neon.webp");
+    position: relative;
     background-position:bottom;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    //background-image: url("../assets/nombre-neon1.webp");
     width: 100%;
+    position: absolute;
     //transform: translateZ(-1px) scale(1.5);
     /* Force the background image to fill the whole element. */
     background-size:cover;
     /* Keep the image from overlapping sibling elements. */
 
-    min-height:85vh;
+    height:85vh;
 
+
+  }
+  #uno {
+    background-image: url("../assets/nombre-neon1.webp");
+  }
+   #dos{
+    background-image: url("../assets/nombre-neon2.webp");
+    animation-delay: 1s;
+        animation: flicker 2s infinite;
 
   }
 }
