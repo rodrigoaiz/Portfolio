@@ -387,6 +387,7 @@ Works
   width: 100%;
   min-height: 100vh;
   background-color:$color__base--purpura;
+  padding-bottom: 2rem;
   @include flex(flex, column, nowrap, center, center);
   &__empresas{
     margin-top: 2rem;
@@ -668,6 +669,12 @@ Nombre neoen
     background-image: url("../assets/nombre-neon2.webp");
     animation-delay: 1s;
         animation: flicker 2s infinite;
+
+  }
+   #tres{
+    background-image: url("../assets/nombre-neon3.webp");
+    animation-delay: 10s;
+        animation: neonAnimation 15s infinite;
 
   }
 }
