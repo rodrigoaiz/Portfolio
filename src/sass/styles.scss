@@ -920,6 +920,26 @@ MODALS
       }
     }
   }
+  &__gallery-full{
+    width:95%;
+    margin: 2em auto;
+    @include flex(flex, row, wrap, space-between, center);
+    @include media (){
+      width: 100%;
+    }
+    div{
+      width: 33%;
+      img{
+        max-width: 100%;
+        cursor: zoom-in;
+        &:hover{
+          filter: sepia(42%) brightness(72%) saturate(202%);
+          -webkit-filter: sepia(42%) brightness(72%) saturate(202%);
+          -moz-filter: sepia(42%) brightness(72%) saturate(202%);
+        }
+      }
+    }
+  }
   &__vallery{
     width: 60%;
     @include flex(flex, row, wrap, center, center);
