@@ -181,6 +181,7 @@ MENU REDES
               :hover{
                 fill: $color__amarillo;
                 transition: all ease 0.5s;
+
               }
             }
             svg{
@@ -196,7 +197,18 @@ MENU REDES
               }
         }
     }
+    &__a{
+      @include parrafo($tipo__textos, 0.7em, 400, $color__blanco);
+      transition: all ease 1s;
+      color: $color__base--negromorado;
+      text-align: center;
+       &:hover{
+          color: $color__base--purpuraA;
+          transition: all ease 1s;
+        }
+    }
 }
+
 .quitar-redes{
  top: 10%;
  transition: all ease 0.5s;
